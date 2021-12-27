@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header">
+    <h1>{% block title %}Projects{% endblock %}</h1>
+    <p>A collection of various projects of mine</p>
+</div> 
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="side">
+        <img src="static/flask.png">
+    </div>
+    <div class="main">
+        <h1>This Website</h1>
+        <p>
+            It's running on Flask, because while html is a little limiting for my 
+            tastes, I hate the shift of client/server responsibility that
+            javascript represents. 
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="side">
+        <img src="static/sputnik.png">
+    </div>
+    <div class="main">
+        <h1>Sputnik</h1>
+        <p>
+            Sputnik is a Discord bot, intended to bring a variety of features to
+            the communities I'm a part of. 
+        </p>
+        <p>
+            It began as just another music bot, streaming youtube videos into a 
+            server's audio channel, but has since grown to offer much more. Most
+            recently, Sputnik has gained the ability to transcribe and censor 
+            images.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="side">
+        <img src="static/meme_generator.png">
+    </div>
+    <div class="main">
+        <h1>Meme Generator</h1>
+        <p>
+            I've implemented my very own custom meme builder tool, as 
+            <a href="{{url_for('memes.memes')}}">a page on this very site</a>, for my
+            friends and to use meme templates containing our D&D characters.
+        </p>
+    </div>
+</div>
+{% endblock %}

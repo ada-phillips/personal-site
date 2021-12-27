@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header">
+  <h1>{% block title %}Memes{% endblock %}</h1>
+  <p>Custom Memes, for my friends and I</p>
+</div> 
+{% endblock %}
+
+{% block content %}
+<div class="grid-container">
+  {% for meme, data in memes.items() %}
+    <div class="grid-item">
+      <img src="{{url_for('static', filename='memes/'+meme+'.png')}}" class="captioned">
+      <a class="caption" href="{{url_for('memes.meme_form', meme_format=meme)}}">{{data['title']}}</a>
+    </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}

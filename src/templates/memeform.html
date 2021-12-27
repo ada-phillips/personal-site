@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="header">
+    <h1>{% block title %}Memes{% endblock %}</h1>
+    <p>Custom Memes, for my friends and I</p>
+</div> 
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="main">
+        <img src="{{meme_url}}" class="med">
+    </div>
+</div>
+<div class="row">
+    <div class="side">
+        <form method="post">
+            {% for field, data in meme_data.fields.items() %}
+            <p>
+                <label for="field-{{field}}">Field {{field}}</label>
+                <input name="{{field}}" id="field-{{field}}" placeholder="{{data.get('placeholder', 'Field '+field)}}" value="{{request.form.get(field, '')}}">
+            </p>
+            {% endfor %}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</div>
+{% endblock %}
